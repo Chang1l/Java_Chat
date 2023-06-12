@@ -140,8 +140,8 @@ class WaitRoomDisplay extends JFrame implements ActionListener, KeyListener,
 
         c.add(p_2);
 
-
-        ImageIcon createIcon = new ImageIcon("Image/createchat.png"); // 이미지 파일 경로로 수정
+        ClassLoader classLoader = ChatClient.class.getClassLoader();
+        ImageIcon createIcon = new ImageIcon(classLoader.getResource("Image/createchat.png")); // 이미지 파일 경로로 수정
         Image image = createIcon.getImage();
         Image resizedImage = image.getScaledInstance(55, 55, Image.SCALE_SMOOTH);//이미지 사이즈 변경
         ImageIcon resizedIcon = new ImageIcon(resizedImage);
@@ -154,7 +154,7 @@ class WaitRoomDisplay extends JFrame implements ActionListener, KeyListener,
         c.add(create);
 
 
-        ImageIcon joinIcon = new ImageIcon("Image/joinchat.png"); // 이미지 파일 경로로 수정
+        ImageIcon joinIcon = new ImageIcon(classLoader.getResource("Image/joinchat.png")); // 이미지 파일 경로로 수정
         image = joinIcon.getImage();
         resizedImage = image.getScaledInstance(55, 55, Image.SCALE_SMOOTH);//이미지 사이즈 변경
         resizedIcon = new ImageIcon(resizedImage);
@@ -167,7 +167,7 @@ class WaitRoomDisplay extends JFrame implements ActionListener, KeyListener,
         c.add(join);
 
 
-        ImageIcon sendwordIcon = new ImageIcon("Image/ear.png"); // 이미지 파일 경로로 수정
+        ImageIcon sendwordIcon = new ImageIcon(classLoader.getResource("Image/ear.png")); // 이미지 파일 경로로 수정
         image = sendwordIcon.getImage();
         resizedImage = image.getScaledInstance(55, 55, Image.SCALE_SMOOTH);//이미지 사이즈 변경
         resizedIcon = new ImageIcon(resizedImage);

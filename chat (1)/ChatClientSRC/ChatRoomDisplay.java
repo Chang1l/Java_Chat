@@ -92,7 +92,11 @@ class ChatRoomDisplay extends JFrame implements ActionListener, KeyListener, Lis
 
         // ---------------------------------------------------------------------------
         //이모티콘
-        ImageIcon sendImageIcon = new ImageIcon("Image/smile.png"); // 이미지 파일 경로로 수정
+        ClassLoader classLoader = ChatClient.class.getClassLoader();
+        ImageIcon sendImageIcon = new ImageIcon(classLoader.getResource("Image/smile.png"));
+
+       
+       // ImageIcon sendImageIcon = new ImageIcon("Image/smile.png"); // 이미지 파일 경로로 수정
         Image image = sendImageIcon.getImage();
         Image resizedImage = image.getScaledInstance(30, 30, Image.SCALE_SMOOTH);//이미지 사이즈 변경
         ImageIcon resizedIcon = new ImageIcon(resizedImage);
@@ -118,7 +122,7 @@ class ChatRoomDisplay extends JFrame implements ActionListener, KeyListener, Lis
 
                 JPanel panel = new JPanel();
                 for (String imagePath : imagePaths) {
-                    ImageIcon icon = new ImageIcon(imagePath);
+                    ImageIcon icon = new ImageIcon(classLoader.getResource(imagePath));
                     Image image = icon.getImage();
                     Image resizedImage = image.getScaledInstance(100, 100, Image.SCALE_SMOOTH);
                     ImageIcon resizedIcon = new ImageIcon(resizedImage);
@@ -163,7 +167,8 @@ class ChatRoomDisplay extends JFrame implements ActionListener, KeyListener, Lis
         roomerInfo.setFont(new Font("Dialog", Font.PLAIN, 17));
 
         //강제 퇴장
-        ImageIcon coerceOutIcon = new ImageIcon("Image/redcard.png"); // 이미지 파일 경로로 수정
+        ImageIcon coerceOutIcon = new ImageIcon(classLoader.getResource("Image/redcard.png"));
+      //  ImageIcon coerceOutIcon = new ImageIcon("Image/redcard.png"); // 이미지 파일 경로로 수정
         image = coerceOutIcon.getImage();
         resizedImage = image.getScaledInstance(55, 55, Image.SCALE_SMOOTH);//이미지 사이즈 변경
         resizedIcon = new ImageIcon(resizedImage);
@@ -178,7 +183,8 @@ class ChatRoomDisplay extends JFrame implements ActionListener, KeyListener, Lis
 
 
         //파일전송
-        ImageIcon sendFileIcon = new ImageIcon("Image/folder.png"); // 이미지 파일 경로로 수정
+        ImageIcon sendFileIcon = new ImageIcon(classLoader.getResource("Image/folder.png"));
+      //  ImageIcon sendFileIcon = new ImageIcon("Image/folder.png"); // 이미지 파일 경로로 수정
         image = sendFileIcon.getImage();
         resizedImage = image.getScaledInstance(55, 55, Image.SCALE_SMOOTH);//이미지 사이즈 변경
         resizedIcon = new ImageIcon(resizedImage);
@@ -193,7 +199,8 @@ class ChatRoomDisplay extends JFrame implements ActionListener, KeyListener, Lis
 
 
         //귓말 보내기
-        ImageIcon sendWordIcon = new ImageIcon("Image/ear.png"); // 이미지 파일 경로로 수정
+        ImageIcon sendWordIcon = new ImageIcon(classLoader.getResource("Image/ear.png"));
+     //   ImageIcon sendWordIcon = new ImageIcon("Image/ear.png"); // 이미지 파일 경로로 수정
         image = sendWordIcon.getImage();
         resizedImage = image.getScaledInstance(55, 55, Image.SCALE_SMOOTH);//이미지 사이즈 변경
         resizedIcon = new ImageIcon(resizedImage);
@@ -207,7 +214,8 @@ class ChatRoomDisplay extends JFrame implements ActionListener, KeyListener, Lis
         sendWord.addActionListener(this);
 
         //퇴실하기
-        ImageIcon quitRoomIcon = new ImageIcon("Image/quitroom.png"); // 이미지 파일 경로로 수정
+        ImageIcon quitRoomIcon = new ImageIcon(classLoader.getResource("Image/quitroom.png"));
+       // ImageIcon quitRoomIcon = new ImageIcon("Image/quitroom.png"); // 이미지 파일 경로로 수정
         image = quitRoomIcon.getImage();
         resizedImage = image.getScaledInstance(55, 55, Image.SCALE_SMOOTH);//이미지 사이즈 변경
         resizedIcon = new ImageIcon(resizedImage);

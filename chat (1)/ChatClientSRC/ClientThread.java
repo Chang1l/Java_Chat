@@ -113,6 +113,7 @@ public class ClientThread extends Thread {
                 String recvData = ct_in.readUTF();
                 StringTokenizer st = new StringTokenizer(recvData, SEPARATOR);
                 int command = Integer.parseInt(st.nextToken());
+                ClassLoader classLoader = ChatClient.class.getClassLoader();
                 switch (command) {
                     case YES_LOGON: {
                         logonbox.dispose();
@@ -479,7 +480,7 @@ public class ClientThread extends Thread {
                             } else {
                                 ct_chatRoom.message.setText("");
                                 // 이미지 아이콘을 생성하여 스타일에 추가
-                                ImageIcon imageIcon = new ImageIcon(imgpath);
+                                ImageIcon imageIcon = new ImageIcon(classLoader.getResource(imgpath));
                                 StyleConstants.setIcon(messageStyle, imageIcon);
                                 StyledDocument doc = ct_chatRoom.messages.getStyledDocument();
 

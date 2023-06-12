@@ -12,8 +12,11 @@ public class ChatClient {
         frame.getContentPane().setBackground(new Color(186, 206, 224));
 
         // 이미지를 표시할 JLabel 생성
-        ImageIcon originalIcon = new ImageIcon("Image/talk.png"); // 이미지 파일 경로로 수정
+   //     ImageIcon originalIcon = new ImageIcon("Image/talk.png"); // 이미지 파일 경로로 수정
+        ClassLoader classLoader = ChatClient.class.getClassLoader();
+        ImageIcon originalIcon = new ImageIcon(classLoader.getResource("Image/talk.png"));
 
+       
         Image scaledImage = originalIcon.getImage().getScaledInstance(200, 200, Image.SCALE_DEFAULT);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
         JLabel imageLabel = new JLabel(scaledIcon);
